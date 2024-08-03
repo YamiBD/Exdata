@@ -4,10 +4,22 @@ var aperturaSomos=function(){
   let contenidoSomos=` <h1>¿Quiénes somos?</h1>
             <!-- Cambiar el color de los bordes -->
              <!-- Cambirar los margenes y alineaciones -->
-            <div class="container text-center">
-                <div class="row row-cols-3">`;
+            <div class="container text-center">`;
   return contenidoSomos;
 };
+var somosSegunTamanio=function(contenidoSomos){
+  var ancho = window.innerWidth;
+  console.log(ancho);
+  if (ancho < 575.98) {
+      // Código para pantallas pequeñas (móviles)
+      var contenidoDiv=`<div class="row row-cols-2">`;
+      
+      } else {
+      var contenidoDiv=`<div class="row row-cols-3">`;
+    }     ;
+    contenidoSomos+=contenidoDiv;
+  return contenidoSomos;
+}
 
 var card_integrante= function(nombre, profesion){
   let card =`
@@ -40,6 +52,7 @@ var cierreSomos=function(contenidoSomos){
 
 var seccion_Somos=function(data){
   let contenidoSomos=aperturaSomos();
+  contenidoSomos=somosSegunTamanio(contenidoSomos);
   contenidoSomos=cards_integrantes(data,contenidoSomos);
   contenidoSomos=cierreSomos(contenidoSomos);
   return contenidoSomos
