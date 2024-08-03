@@ -4,22 +4,11 @@ var aperturaSomos=function(){
   let contenidoSomos=` <h1>¿Quiénes somos?</h1>
             <!-- Cambiar el color de los bordes -->
              <!-- Cambirar los margenes y alineaciones -->
-            <div class="container text-center">`;
+            <div class="container text-center">
+              <div class="row">`;
   return contenidoSomos;
 };
-var somosSegunTamanio=function(contenidoSomos){
-  var ancho = window.innerWidth;
-  console.log(ancho);
-  if (ancho < 575.98) {
-      // Código para pantallas pequeñas (móviles)
-      var contenidoDiv=`<div class="row row-cols-2">`;
-      
-      } else {
-      var contenidoDiv=`<div class="row row-cols-3">`;
-    }     ;
-    contenidoSomos+=contenidoDiv;
-  return contenidoSomos;
-}
+
 
 var card_integrante= function(nombre, profesion){
   let card =`
@@ -52,7 +41,6 @@ var cierreSomos=function(contenidoSomos){
 
 var seccion_Somos=function(data){
   let contenidoSomos=aperturaSomos();
-  contenidoSomos=somosSegunTamanio(contenidoSomos);
   contenidoSomos=cards_integrantes(data,contenidoSomos);
   contenidoSomos=cierreSomos(contenidoSomos);
   return contenidoSomos
@@ -119,7 +107,9 @@ var seccion_Servicios=function(data){
 
 //Funcion tecnologia CARROUSEL
 var aperturaTecnologia=function(){
-  let contenidoTecnologia=` <h1>Nuestros Tecnologías</h1>
+  let contenidoTecnologia=` 
+  <div class="ocultar-en-movil">
+    <h1>Nuestros Tecnologías</h1>
             <p>Tenemos experiencia con un diverso Stack Tecnológico:</p>
             <div id="carouselExampleDark" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -162,7 +152,8 @@ var cierreTecnologia=function(contenidoTecnologia){
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
-              </div>`;
+              </div>
+        </div>`;
   return contenidoTecnologia;
 };
 
@@ -243,13 +234,13 @@ const dataTecnologia=[
   {id:0,
    nombre:"Software",
    descripcion:`<ol>
-                    <li><strong> Python </strong>- Pytorch, Keras, LangChain, SciKit-Learn, OpenCV, Streamlit, …</li>
+                    <li><strong> Python </strong>- Pytorch, Keras, LangChain, SciKit-Learn, OpenCV, Streamlit</li>
                     <li><strong> JavaScript</strong> - Bootstrap</li>
-                    <li> <strong>AI</strong> - GPT, Claude, Gemini, Groq, HuggingFace, …</li>
+                    <li> <strong>AI</strong> - GPT, Claude, Gemini, Groq, HuggingFace</li>
                     <li><strong>Containerization </strong>- Docker</li>
                     <li><strong>Cloud</strong> - AWS, Azure, Google Cloud</li>
                     <li><strong>Bases de Datos</strong> - SQL, MongoDB</li>
-                        
+                    <li> </li>                        
                 </ol>`},
   {id:1,
    nombre:"Hardware",
@@ -258,6 +249,8 @@ const dataTecnologia=[
                     <li><span> Impresión 3D</span> - Diseño de partes</li>
                     <li> <span>Sensores y Electrónica</span> - CCD, CMOS, Sensores de presión, Motores por paso</li>
                     <li><span>Clusters</span>- Beowulf con paralelización MPI/OpenMP/CUDA</li>
+                    <li> </li>
+                    <li> </li>
                 </ol>`
    },
    {id:2,
@@ -387,7 +380,30 @@ var contenidoProyecto=`
 proyectos.innerHTML=contenidoProyecto;
 var container = document.getElementById('gridContainer');
 
-for (var i = 0; i < dataProyectos.length; i++) {
+let largo = dataProyectos.length;
+
+function ejecutarSegunTamano(largo) {
+  var ancho = window.innerWidth;
+    
+  if (ancho < 768) {
+    // Código para pantallas pequeñas (móviles)
+    largo=4;
+    // Aquí puedes ejecutar más código para móviles
+    } else {
+    // Código para pantallas grandes (desktops)
+    
+    // Aquí puedes ejecutar más código para desktops
+  }
+  return largo
+}
+
+// Ejecutar la función al cargar la página
+ejecutarSegunTamano(largo);
+
+// Ejecutar la función cada vez que se cambia el tamaño de la ventana
+window.addEventListener('resize', ejecutarSegunTamano);
+// largo=dataProyectos.length;
+for (var i = 0; i < largo; i++) {
           var div = document.createElement('div');
           div.className = 'grid-item';
           div.setAttribute('data-aos', 'fade-up');

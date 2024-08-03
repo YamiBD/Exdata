@@ -21,7 +21,7 @@ body{
 
 /* De clase */
 .General{
-    padding: 20px; 
+    /* padding: 20px;  */
     margin-top: 25px;
     margin-bottom: 25px;
     
@@ -38,7 +38,7 @@ ul{
     align-items: center;
     background-color:white;
     color: rgb(40, 135, 129);
-    height: 60px;
+    height: auto;
     justify-content: flex-end;
      
         
@@ -76,9 +76,10 @@ ul{
 
 
 .General{
-    padding: 20px; 
+    width: 80%;
+    /* padding: 20px; 
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 25px; */
 
         
 } 
@@ -117,28 +118,34 @@ ul{
 h4{
     color:black;
 }
-.carousel-inner{
-    margin:10px,
-    padding:0px,
-}
+
+ol {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: center;
+  }
+
+ol li {
+    line-height: 2.6; 
+  }
 .grid-container {
-        margin: 50px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-    }
+    margin: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
 .grid-item {
-        background-color: #fff;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-    }
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
 .grid-item:hover {
-        background-color: #f1f1f1;
-    }
+    background-color: #f1f1f1;
+}
 /* Formulario contacto */
 .contact-form {
         width: 100%;
@@ -237,6 +244,66 @@ footer{
 }
      
 
+/*Escritorio*/
+@media (min-width: 1199.98px)  {
+    
+}
+/*Fin Escritorio*/
 
+/*Tablet*/
+/*Portrait*/
+@media (min-width: 576px) and (max-width: 991.98px) and (orientation:portrait) {
+    ul {
+        & li{
+            margin:5px;
+            padding: 5px;
+        }}
+    /* a partir de esta medida poner en somos 2 por columnas y menor padding*/
+  
+    
+}
+
+/*landscape*/
+@media (min0-width: 991.98px) and (max-width: 1199.98px)and (orientation:landscape) {
+    
+    
+}
+/*fin tablet*/
+
+/*movil*/
+/*Portrait*/
+/*Default*/
+@media (max-width: 575.98px)and (orientation:portrait) {
+    
+
+    #Titulo img{
+        width: 100%;}
+    ul {
+        & li{
+            margin:2px;
+            padding: 2px;
+        }}
+    .General{
+        padding: 0;
+    }
+    .accordion{
+        width: 280px;
+    }
+    .ocultar-en-movil {
+        display: none;
+      }
+    
+}
+/*landscape*/
+@media (min-width: 576px) and (max-width: 991.98px) and (orientation:landscape) {
+    
+    ul {
+        & li{
+            margin:5px;
+            padding: 5px;
+        }}
+    
+}
+/*fin movil*/
 
     
